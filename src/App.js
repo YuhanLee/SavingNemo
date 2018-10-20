@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Section1 from "./component/Section1";
+import WorldMap from "./component/WorldMap";
 
 class App extends Component {
   constructor(props) {
@@ -24,8 +25,7 @@ class App extends Component {
         <section className="section1">
           <h1>section 1</h1>
           <div>
-            {console.log(this.state.map)}
-            <Section1 />
+            <WorldMap />
           </div>
         </section>
 

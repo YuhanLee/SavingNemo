@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts3-react": "^3.1.0",
     "chart.js": "^2.7.3",
     "picasso.js": "^0.15.0",
     "react": "^16.5.2",
