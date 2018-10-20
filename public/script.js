@@ -54,40 +54,32 @@ function main() {
       qDimensions: [
         {
           qDef: {
-            qFieldDefs: ["Country"]
+            qFieldDefs: ["Ocean Basins"]
           }
         }
       ],
       qMeasures: [
         {
+          qDef: { qDef: "=Count(Distinct [Country])" },
+          qSortBy: { qSortByNumeric: -1 }
+        },
+        {
+          qDef: { qDef: "=Concat(Distinct [Country], [' '])" },
+          qSortBy: { qSortByNumeric: -1 }
+        },
+        {
           qDef: { qDef: "=Count(Distinct [Commitment Title])" },
-          qSortBy: { qSortByNumeric: -1 }
-        },
-        {
-          qDef: { qDef: "=Avg([GDP Per Capita])" },
-          qSortBy: { qSortByNumeric: -1 }
-        },
-        {
-          qDef: { qDef: "=Sum(Coastlines)" },
-          qSortBy: { qSortByNumeric: -1 }
-        },
-        // {
-        //   qDef: { qDef: "=Count(Distinct [Partners])" },
-        //   qSortBy: { qSortByNumeric: -1 }
-        // }
-        {
-          qDef: { qDef: "=Count(Distinct [Target Title])" },
           qSortBy: { qSortByNumeric: -1 }
         }
       ],
-      // Country Name, # of Commitments, Avg GDP, Coastline Length (km), Number of Targets
-      qInterColumnSortOrder: [2, 0, 1, 3, 4],
+      // Country Name, Ocean Basins, # of Commitments
+      qInterColumnSortOrder: [2, 1, 0, 3],
       qInitialDataFetch: [
         {
           qTop: 0,
           qLeft: 0,
           qHeight: 1000, //rows
-          qWidth: 5
+          qWidth: 4
         }
       ]
     };
