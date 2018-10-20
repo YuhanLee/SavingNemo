@@ -9,10 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-					{/* <div id="earth"></div> */}
-          <p>
-            
-          </p>
+          <ul id='countries'></ul>
         </header>
 
 				<section class="section1">
