@@ -23,16 +23,21 @@
   color: #61dafb;
 }
 
- .section1 {
+ .world-map{
+	 padding-top: 50px; 
+	 padding-left: 20px; 
+	 padding-right: 20px; 
 	 min-height: 700px; 
-	 background-color: #02144c; 
+	 background-color: #d7def2; 
  }
 
- .section2{
+ .bar-chart {
+	padding-top: 50px; 
+	padding-left: 20px; 
+	padding-right: 20px; 
 	min-height: 700px; 
-	background-color: #d7def2; 
- }
-
+	background-color: #02144c; 
+}
  .section3{
 	min-height: 700px; 
 	background-color: white; 

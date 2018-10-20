@@ -122,7 +122,7 @@ function main() {
       ],
       qMeasures: [
         {
-          qDef: { qDef: "=Count(Distinct[Commitment Title])" }
+          qDef: { qDef: "=Count(Distinct [Commitment Title])" }
         }
       ],
       qInterColumnSortOrder: [2, 0, 1],
@@ -140,14 +140,14 @@ function main() {
       // console.log("hyperCube", hypercube);
 
       let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
-      console.log("hyperCube", matrix);
+      // console.log("hyperCube", matrix);
 
       matrix.forEach((row, index) => {
         if (row[0].qText.startsWith("14")) {
           mainMap.commitmentBySDG[row[0].qText] = { count: row[1].qText };
         }
       });
-      console.log(mainMap);
+      // console.log("mainMap",mainMap);
     });
   });
 }
