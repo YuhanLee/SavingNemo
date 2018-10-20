@@ -47,7 +47,7 @@ class Visualization1 extends Component {
 	
   render() {
     return (
-      <div style={{ height: 10 }}>
+      <div className="chart-container" style={{ postion: 'relative', height: '150vh', width: '150vh' }}>
         <canvas id="myChart"></canvas>
       </div>
     );

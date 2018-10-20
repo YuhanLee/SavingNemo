@@ -21,7 +21,7 @@ class App extends Component {
           <ul id="countries" />
         </header>
 
-        <section class="section1">
+        <section className="section1">
           <h1>section 1</h1>
           <div>
             {console.log(this.state.map)}
@@ -29,14 +29,14 @@ class App extends Component {
           </div>
         </section>
 
-        <section class="section2">
+        <section className="section2">
           <h1>section 2</h1>
           <div>
             <Section1 />
           </div>
         </section>
 
-        <section class="section3">
+        <section className="section3">
           <h1>section 2</h1>
           <div>
             <Section1 />
