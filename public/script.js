@@ -71,10 +71,6 @@ function main() {
           qDef: { qDef: "=Sum(Coastlines)" },
           qSortBy: { qSortByNumeric: -1 }
         },
-        // {
-        //   qDef: { qDef: "=Count(Distinct [Partners])" },
-        //   qSortBy: { qSortByNumeric: -1 }
-        // }
         {
           qDef: { qDef: "=Count(Distinct [Target Title])" },
           qSortBy: { qSortByNumeric: -1 }
@@ -101,18 +97,26 @@ function main() {
 
       // the basic matrix of data is available in the hypercube datapages
       let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
-      console.log(matrix);
-      // console.log(hypercube.qHyperCube.qDataPages[0]);
 
-      // you can then treat the matrix as an array
-      matrix.forEach((row, index) => {
-        // the value for each column can be obtained by referencing array indexes
-        // you can use qText for text values and qNum for numerical
-        mainMap.countries[row[0].qText] = { count: row[1].qText };
+      // DEBUG: This is the old code that printed everything
+      // console.log(matrix);
 
-        // console.log("Country:", row[0].qText + row[1].qText);
+
+      matrix.forEach(function(element) {
+        // console.log(element);
+        let countryName = element[0].qText;
+        let numCommitments = element[1].qNum;
+        let gdp = element[2].qNum;
+        let coastLength = element[3].qNum;
+        let numTargets = element[4].qNum;
+        let score = numCommitments * numTargets / (gdp * coastLength);
+        if (!isNaN(score)) {
+          console.log(countryName)
+          console.log(score)
+        }
       });
-      // console.log(mainMap);
+      
+
     });
   });
 }
