@@ -12,6 +12,8 @@ var mainMap = {
   countries: []
 };
 
+var otherMap = [];
+
 function main() {
   // our API uses requirejs, so here we're setting up our base URL
   require.config({
@@ -46,10 +48,10 @@ function main() {
       $.each(reply.qFieldList.qItems, function(key, value) {
         str += value.qName + " ";
       });
-      // alert(str);
+      alert(str);
     });
 
-    var hyperCubeDef = {
+    var CommitmentCountByCountry = {
       qDimensions: [
         {
           qDef: {
@@ -74,7 +76,7 @@ function main() {
       ]
     };
 
-    app.createCube(hyperCubeDef, hypercube => {
+    app.createCube(CommitmentCountByCountry, hypercube => {
       // after creating a cube you define a callback function to handle it
       // this function will be called each time the data changes (ie. when
       // someone makes a selection).
@@ -82,6 +84,7 @@ function main() {
 
       // the basic matrix of data is available in the hypercube datapages
       let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
+
       // console.log(matrix);
       //console.log(hypercube.qHyperCube.qDataPages[0]);
 
@@ -90,10 +93,36 @@ function main() {
         // the value for each column can be obtained by referencing array indexes
         // you can use qText for text values and qNum for numerical
         mainMap.countries[row[0].qText] = { count: row[1].qText };
-
         // console.log("Country:", row[0].qText + row[1].qText);
       });
-      // console.log(mainMap);
+    });
+
+    var anotherOne = {
+      qDimensions: [
+        {
+          qDef: {
+            qFieldDefs: ["Commitment Title"]
+          }
+        }
+      ],
+
+      qInterColumnSortOrder: [2, 0, 1],
+      qInitialDataFetch: [
+        {
+          qTop: 0,
+          qLeft: 0,
+          qHeight: 2222, //rows
+          qWidth: 3
+        }
+      ]
+    };
+
+    app.createCube(anotherOne, hypercube => {
+      let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
+      matrix.forEach((row, index) => {
+        otherMap.push(row[0].qText);
+        //console.log(row[0].qText);
+      });
     });
   });
 }

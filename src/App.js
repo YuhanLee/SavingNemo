@@ -8,12 +8,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      map: {}
+      map: {},
+      map2: []
     };
   }
 
   componentDidMount() {
-    this.setState({ map: window.mainMap });
+    this.setState({ map: window.mainMap, map2: window.otherMap });
   }
   render() {
     return (
