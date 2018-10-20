@@ -100,22 +100,28 @@ function main() {
 
       // DEBUG: This is the old code that printed everything
       // console.log(matrix);
-
+      var minScore = Number.POSITIVE_INFINITY;
+      var maxScore = Number.NEGATIVE_INFINITY;
 
       matrix.forEach(function(element) {
         // console.log(element);
         let countryName = element[0].qText;
         let numCommitments = element[1].qNum;
         let gdp = element[2].qNum;
-        let coastLength = element[3].qNum;
+        let coastLengthOrOne = Math.max(1, element[3].qNum);
         let numTargets = element[4].qNum;
-        let score = numCommitments * numTargets / (gdp * coastLength);
-        if (!isNaN(score)) {
+        let score = numCommitments * numTargets / (gdp * coastLengthOrOne);
+        // DEBUG: Trying to find infinity cases
+        if (!isNaN(score)) { // && isFinite(score)) {
           console.log(countryName)
           console.log(score)
+          console.log(element)
+          minScore = Math.min(score, minScore);
+          maxScore = Math.max(score, maxScore);
         }
       });
-      
+      console.log("lowest: " + minScore);
+      console.log("highest: " + maxScore);
 
     });
   });
