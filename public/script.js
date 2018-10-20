@@ -103,6 +103,7 @@ function main() {
       var minScore = Number.POSITIVE_INFINITY;
       var maxScore = Number.NEGATIVE_INFINITY;
       var countryScoreMapNotNormal = new Map();
+      var countryAndNumCommitments = new Map();
       
       matrix.forEach(function(element) {
         // console.log(element);
@@ -892,6 +893,9 @@ function main() {
           maxScore = Math.max(score, maxScore);
           countryScoreMapNotNormal.set(countryCode, score);
         }
+        if (countryCode != "") {
+          countryAndNumCommitments.set(countryCode, numCommitments);
+        }
       });
       var countryScoreMapNormal = new Map();
       console.log("lowest: " + minScore);
@@ -901,6 +905,7 @@ function main() {
         countryScoreMapNormal.set(countryCodeKey, normalScoreValue)
       }
       console.log(JSON.stringify([...countryScoreMapNormal]));
+      console.log(JSON.stringify([...countryAndNumCommitments]));
     });
   });
 }
