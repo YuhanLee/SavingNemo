@@ -43,5 +43,41 @@ function main() {
 			});
 			// alert(str);
 	});
+      var hyperCubeDef = {
+          qDimensions: [
+              {
+                  qDef: {
+                      qFieldDefs: ['Country']
+                  }
+              }
+          ],
+          qInterColumnSortOrder: [2, 0, 1],
+          qInitialDataFetch: [
+              {
+                  qTop: 0,
+                  qLeft: 0,
+                  qHeight: 200,
+                  qWidth: 3
+              }
+          ]
+      }
+      app.createCube(hyperCubeDef, hypercube => {
+          // after creating a cube you define a callback function to handle it
+          // this function will be called each time the data changes (ie. when
+          // someone makes a selection).
+
+          const $list = $("#countries")
+
+          // the basic matrix of data is available in the hypercube datapages
+          let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix
+
+          // you can then treat the matrix as an array
+          matrix.forEach((row, index) => {
+              // the value for each column can be obtained by referencing array indexes
+              // you can use qText for text values and qNum for numerical
+              $list.append('<li>' + row[0].qText + '</li>')
+              console.log("Country:", row[0].qText)
+          })
+      })
   })
 }
