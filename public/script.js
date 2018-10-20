@@ -9,7 +9,8 @@ var config = {
 };
 
 var mainMap = {
-  countries: []
+  countries: [],
+  commitmentBySDG: []
 };
 
 var otherMap = [];
@@ -48,7 +49,7 @@ function main() {
       $.each(reply.qFieldList.qItems, function(key, value) {
         str += value.qName + " ";
       });
-      alert(str);
+      //alert(str);
     });
 
     var CommitmentCountByCountry = {
@@ -77,23 +78,9 @@ function main() {
     };
 
     app.createCube(CommitmentCountByCountry, hypercube => {
-      // after creating a cube you define a callback function to handle it
-      // this function will be called each time the data changes (ie. when
-      // someone makes a selection).
-      // console.log(hypercube);
-
-      // the basic matrix of data is available in the hypercube datapages
       let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
-
-      // console.log(matrix);
-      //console.log(hypercube.qHyperCube.qDataPages[0]);
-
-      // you can then treat the matrix as an array
       matrix.forEach((row, index) => {
-        // the value for each column can be obtained by referencing array indexes
-        // you can use qText for text values and qNum for numerical
         mainMap.countries[row[0].qText] = { count: row[1].qText };
-        // console.log("Country:", row[0].qText + row[1].qText);
       });
     });
 
@@ -123,6 +110,44 @@ function main() {
         otherMap.push(row[0].qText);
         //console.log(row[0].qText);
       });
+    });
+
+    var commitmentBySDG = {
+      qDimensions: [
+        {
+          qDef: {
+            qFieldDefs: ["SDG Target"]
+          }
+        }
+      ],
+      qMeasures: [
+        {
+          qDef: { qDef: "=Count(Distinct[Commitment Title])" }
+        }
+      ],
+      qInterColumnSortOrder: [2, 0, 1],
+      qInitialDataFetch: [
+        {
+          qTop: 0,
+          qLeft: 0,
+          qHeight: 3333, //rows
+          qWidth: 3
+        }
+      ]
+    };
+
+    app.createCube(commitmentBySDG, hypercube => {
+      // console.log("hyperCube", hypercube);
+
+      let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
+      console.log("hyperCube", matrix);
+
+      matrix.forEach((row, index) => {
+        if (row[0].qText.startsWith("14")) {
+          mainMap.commitmentBySDG[row[0].qText] = { count: row[1].qText };
+        }
+      });
+      console.log(mainMap);
     });
   });
 }

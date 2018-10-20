@@ -8,8 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      map: {},
-      map2: []
+      map: {}
     };
   }
 
@@ -27,6 +26,9 @@ class App extends Component {
           <h1>section 1</h1>
           <div>
             <WorldMap />
+            {console.log(this.state.map)}
+
+            <Section1 />
           </div>
         </section>
 
