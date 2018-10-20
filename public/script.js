@@ -28,11 +28,11 @@ function main() {
    * See full documention:
    * https://help.qlik.com/en-US/sense-developer/September2018/Subsystems/APIs/Content/Sense_ClientAPIs/CapabilityAPIs/qlik-interface-interface.htm
    */
-  require(["js/qlik"], function(qlik) {
+  require(["js/qlik"], function (qlik) {
     // We're now connected
 
     // Suppress Qlik error dialogs and handle errors how you like.
-    qlik.setOnError(function(error) {
+    qlik.setOnError(function (error) {
       console.log("ERROR", error);
     });
 
@@ -41,9 +41,9 @@ function main() {
     console.log("App Opened", app);
 
     console.log(app);
-    app.getList("FieldList", function(reply) {
+    app.getList("FieldList", function (reply) {
       var str = "";
-      $.each(reply.qFieldList.qItems, function(key, value) {
+      $.each(reply.qFieldList.qItems, function (key, value) {
         str += value.qName + " ";
       });
       // alert(str);
@@ -59,17 +59,25 @@ function main() {
       ],
       qMeasures: [
         {
-          qDef: { qDef: "=Count(Country)" },
+          qDef: { qDef: "=Count(Distinct [Commitment Title])" },
+          qSortBy: { qSortByNumeric: -1 }
+        },
+        {
+          qDef: { qDef: "=Avg([GDP Per Capita])" },
+          qSortBy: { qSortByNumeric: -1 }
+        },
+        {
+          qDef: { qDef: "=Sum(Coastlines)" },
           qSortBy: { qSortByNumeric: -1 }
         }
       ],
-      qInterColumnSortOrder: [2, 0, 1],
+      qInterColumnSortOrder: [2, 0, 1, 3],
       qInitialDataFetch: [
         {
           qTop: 0,
           qLeft: 0,
           qHeight: 2222, //rows
-          qWidth: 3
+          qWidth: 4
         }
       ]
     };
@@ -82,8 +90,8 @@ function main() {
 
       // the basic matrix of data is available in the hypercube datapages
       let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
-      // console.log(matrix);
-      //console.log(hypercube.qHyperCube.qDataPages[0]);
+      console.log(matrix);
+      // console.log(hypercube.qHyperCube.qDataPages[0]);
 
       // you can then treat the matrix as an array
       matrix.forEach((row, index) => {
