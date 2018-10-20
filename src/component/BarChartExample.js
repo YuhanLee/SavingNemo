@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Visualization1 from './Visualization1'; 
 import '../stylesheets/test.scss';
 
-class Section1 extends Component {
+class BarChartExample extends Component {
 	
   render() {
     return (
@@ -14,4 +14,4 @@ class Section1 extends Component {
 	
 }
 
-export default Section1;
+export default BarChartExample;

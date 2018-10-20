@@ -1,46 +1,47 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Section1 from "./component/Section1";
+import BarChartExample from "./component/BarChartExample";
 import WorldMap from "./component/WorldMap";
+import CommitmentBySDG from "./component/CommitmentBySDG";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      map: {}
-    };
+			dataMap: {}
+		};
   }
 
-  componentDidMount() {
-    this.setState({ map: window.mainMap });
+  componentWillMount() {
+    this.setState({ dataMap: window.mainMap, map2: window.otherMap, loaded: true });
   }
   render() {
+	
     return (
       <div className="App">
         <header className="App-header">
           <ul id="countries" />
         </header>
 
-        <section className="section1">
-          <h1>section 1</h1>
+        <section className="container world-map">
+          <h1>World Map</h1>
           <div>
-            <WorldMap />
+						<WorldMap />
           </div>
         </section>
 
-        <section className="section2">
-          <h1>section 2</h1>
+        <section className="container bar-chart">
+          <h1>Bar Chart</h1>
           <div>
-            <Section1 />
+						<BarChartExample />
           </div>
         </section>
 
-        <section className="section3">
-          <h1>section 2</h1>
-          <div>
-            <Section1 />
-          </div>
+        <section className="container section3">
+          <h1>Last Section</h1>
+						<div>
+							<CommitmentBySDG dataMap={this.state.dataMap}/>
+						</div>
         </section>
       </div>
     );
