@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import BarChartExample from "./component/BarChartExample";
 import WorldMap from "./component/WorldMap";
-import Section from "./component/Section";
+import CommitmentBySDG from "./component/CommitmentBySDG";
 
 class App extends Component {
   constructor(props) {
@@ -26,25 +26,22 @@ class App extends Component {
         <section className="container world-map">
           <h1>World Map</h1>
           <div>
-					<WorldMap />
-
+						<WorldMap />
           </div>
         </section>
 
         <section className="container bar-chart">
           <h1>Bar Chart</h1>
           <div>
-
-					<BarChartExample />
-
+						<BarChartExample />
           </div>
         </section>
 
         <section className="container section3">
-          <h1>section 2</h1>
-          <div>
-					<Section dataMap={this.state.dataMap}/>
-          </div>
+          <h1>Last Section</h1>
+						<div>
+							<CommitmentBySDG dataMap={this.state.dataMap}/>
+						</div>
         </section>
       </div>
     );

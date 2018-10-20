@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 import "../stylesheets/commitmentxSDG.scss";
 
 
-class Section extends Component {
+class CommitmentBySDG extends Component {
 	constructor(props) {
     super(props);
 		this.state = { 
@@ -37,4 +37,4 @@ class Section extends Component {
 	
 }
 
-export default Section;
+export default CommitmentBySDG;
