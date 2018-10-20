@@ -5,7 +5,8 @@ var config = {
   port: "443",
   isSecure: true,
   rejectUnauthorized: false,
-  appname: "0b0fc6d5-05ce-44d7-95aa-80d0680b3559"
+  // appname: "0b0fc6d5-05ce-44d7-95aa-80d0680b3559"
+  appname: "06924e5c-c219-4e5c-ab4a-e1b9af143971"
 };
 
 var mainMap = {
@@ -69,20 +70,30 @@ function main() {
         {
           qDef: { qDef: "=Sum(Coastlines)" },
           qSortBy: { qSortByNumeric: -1 }
+        },
+        // {
+        //   qDef: { qDef: "=Count(Distinct [Partners])" },
+        //   qSortBy: { qSortByNumeric: -1 }
+        // }
+        {
+          qDef: { qDef: "=Count(Distinct [Target Title])" },
+          qSortBy: { qSortByNumeric: -1 }
         }
       ],
-      qInterColumnSortOrder: [2, 0, 1, 3],
+      // Country Name, # of Commitments, Avg GDP, Coastline Length (km), Number of Targets
+      qInterColumnSortOrder: [2, 0, 1, 3, 4],
       qInitialDataFetch: [
         {
           qTop: 0,
           qLeft: 0,
-          qHeight: 2222, //rows
-          qWidth: 4
+          qHeight: 1000, //rows
+          qWidth: 5
         }
       ]
     };
 
     app.createCube(hyperCubeDef, hypercube => {
+      console.log(hypercube.qHyperCube.qError);
       // after creating a cube you define a callback function to handle it
       // this function will be called each time the data changes (ie. when
       // someone makes a selection).
