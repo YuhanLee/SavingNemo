@@ -110,9 +110,9 @@ function main() {
         let gdp = element[2].qNum;
         let coastLengthOrOne = Math.max(1, element[3].qNum);
         let numTargets = element[4].qNum;
-        let score = numCommitments * numTargets / (gdp * coastLengthOrOne);
-        // DEBUG: Trying to find infinity cases
-        if (!isNaN(score)) { // && isFinite(score)) {
+        let scoreNotTransform = numCommitments * numTargets / (gdp * coastLengthOrOne);
+        if (!isNaN(scoreNotTransform)) {
+          let score = Math.sqrt(scoreNotTransform)
           console.log(countryName)
           console.log(score)
           console.log(element)
