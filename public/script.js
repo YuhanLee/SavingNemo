@@ -41,7 +41,7 @@ function main() {
 			$.each(reply.qFieldList.qItems, function(key, value) {
 					str +=  value.qName + ' ';
 			});
-			alert(str);
+			// alert(str);
 	});
   })
 }
