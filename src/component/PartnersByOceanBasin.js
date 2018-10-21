@@ -3,7 +3,7 @@ import Chart from 'chart.js';
 import "../stylesheets/commitmentxSDG.scss";
 
 
-class CommitmentBySDG extends Component {
+class PartnersByOceanBasin extends Component {
 	constructor(props) {
     super(props);
 	}
@@ -11,21 +11,20 @@ class CommitmentBySDG extends Component {
 
 	componentDidMount() {
 		//hardcoding it before the data can be properly be passed from App.js through dataMap
-		var dataX= ["14.1", "14.2", "14.3", "14.4", "14.5", "14.6", "14.7", "14.a", "14.b", "14.c"]; 
-		var dataY = ["547", "705", "232", "413", "385", "91", "326", "530", "228", "271"]; 
+		var dataX= ["South Pacific", "North Pacific", "North Atlantic", "Arctic Ocean", 
+		"Southern Ocean", "South Atlantic", "Indian Ocean", "Global"]; 
+		var dataY = ["1204", "904", "1302", "175", "283", "547", "876", "1942"]; 
 
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-        type: 'bar',
+		//TODO: possibly display more information on the target info: https://sustainabledevelopment.un.org/sdg14
+    var ctx = document.getElementById("partnersByOceanBasins");
+    var partnersByOceanBasins = new Chart(ctx, {
+        type: 'doughnut',
         data: {
             labels: dataX, 
             datasets: [{
-                label: '# of Commitments',
+                label: '# of Partners',
                 data: dataY, 
                 backgroundColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
 										'rgba(255, 159, 64, 1)',
@@ -35,9 +34,6 @@ class CommitmentBySDG extends Component {
                     'rgba(75, 192, 192, 1)'
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
 										'rgba(255, 159, 64, 1)',
@@ -64,11 +60,11 @@ class CommitmentBySDG extends Component {
   render() {
     return (
       <div className="chart-container" >
-				<h1>Commitment by SDG Target</h1>
-        <canvas id="myChart" className="canvas" width="600" height="400" ></canvas>
+				<h1>Partners By Ocean Basins</h1>
+        <canvas id="partnersByOceanBasins" className="canvas" width="600" height="400" ></canvas>
       </div>
     );
 	}	
 }
 
-export default CommitmentBySDG;
+export default PartnersByOceanBasin;

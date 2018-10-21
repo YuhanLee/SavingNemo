@@ -10,7 +10,8 @@ var config = {
 
 var mainMap = {
   countries: [],
-  commitmentBySDG: []
+	commitmentBySDG: [], 
+	partnersByOceanBasins: []
 };
 
 var otherMap = [];
@@ -149,7 +150,45 @@ function main() {
 					// [row[0].qText] = { count: row[1].qText };
         }
       });
-			console.log("mainMap in", mainMap);
+			// console.log("mainMap in", mainMap);
+		});
+		
+
+		var partnersByOceanBasins = {
+      qDimensions: [
+        {
+          qDef: {
+            qFieldDefs: ["Ocean Basins"]
+          }
+        }
+      ],
+      qMeasures: [
+        {
+          qDef: { qDef: "=Count(Distinct [Partners])" }
+        }
+      ],
+      qInterColumnSortOrder: [2, 0, 1],
+      qInitialDataFetch: [
+        {
+          qTop: 0,
+          qLeft: 0,
+          qHeight: 3333, //rows
+          qWidth: 3
+        }
+      ]
+    };
+
+    app.createCube(partnersByOceanBasins, hypercube => {
+      // console.log("hyperCube", hypercube);
+
+      let matrix = hypercube.qHyperCube.qDataPages[0].qMatrix;
+      // console.log("hyperCube", matrix);
+
+      matrix.forEach((row, index) => {
+					mainMap.partnersByOceanBasins.push({x:row[0].qText, y:row[1].qText});					
+					// [row[0].qText] = { count: row[1].qText };
+      });
+			// console.log("mainMap", mainMap);
     });
   });
 }

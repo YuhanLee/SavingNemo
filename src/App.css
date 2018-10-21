@@ -37,9 +37,17 @@
 	padding: 30px; 
 	padding-top: 50px;
 	min-height: 600px; 
-	background-color: white; 
+	background-color: #f2f5fa;
 }
- .section3{
+ .doughnut-chart {
 	min-height: 600px; 
-	background-color: #233160; 
- }
+	padding: 30px; 
+	padding-top: 50px;
+	background-color: #f2f5fa;
+}
+
+.grid-container {
+	display: grid; 
+	grid-column-gap: 50px; 
+	grid-template-columns: auto auto; 
+}
