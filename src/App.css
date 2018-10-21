@@ -56,3 +56,19 @@
   grid-column-gap: 50px;
   grid-template-columns: auto auto;
 }
+
+.Main-subtitle {
+  position: absolute;
+  border-top-right-radius: 100px;
+  color: white;
+  font-family: "Righteous", cursive;
+  text-transform: uppercase;
+  font-size: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
+  opacity: 0.8;
+}
+h3 {
+  font-size: 10px;
+}
+

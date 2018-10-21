@@ -23,6 +23,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="Main-subtitle">
+          <h2>
+            Fact: We could see <br />
+            fishless oceans <br /> by 2048
+          </h2>
+          <h3> Source: National Geographic</h3>
+        </div>
+        
         <header className="App-header">
           <img
             src={require("./images/Icon.png")}
@@ -33,8 +41,6 @@ class App extends Component {
             alt="icon"
           />
           <h1 className="Main-Title"> Saving Nemo</h1>
-          <h2>Fact: We could see <br/>fishless oceans <br/> by 2048</h2>
-          <h3> Source: National Geo</h3>
         </header>
 
         <section className="container world-map">
