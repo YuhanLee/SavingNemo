@@ -74,16 +74,20 @@ function main() {
         {
           qDef: { qDef: "=Count(Distinct [Target Title])" },
           qSortBy: { qSortByNumeric: -1 }
+        },
+        {
+          qDef: { qDef: "=Count(Distinct [Partner List])" },
+          qSortBy: { qSortByNumeric: -1 }
         }
       ],
       // Country Name, # of Commitments, Avg GDP, Coastline Length (km), Number of Targets
-      qInterColumnSortOrder: [2, 0, 1, 3, 4],
+      qInterColumnSortOrder: [2, 0, 1, 3, 4, 5],
       qInitialDataFetch: [
         {
           qTop: 0,
           qLeft: 0,
-          qHeight: 1000, //rows
-          qWidth: 5
+          qHeight: 600, //rows
+          qWidth: 6
         }
       ]
     };
@@ -104,6 +108,7 @@ function main() {
       var maxScore = Number.NEGATIVE_INFINITY;
       var countryScoreMapNotNormal = new Map();
       var countryAndNumCommitments = new Map();
+      var countryAndParners = new Map();
       
       matrix.forEach(function(element) {
         // console.log(element);
@@ -894,7 +899,9 @@ function main() {
           countryScoreMapNotNormal.set(countryCode, score);
         }
         if (countryCode != "") {
+          let numPartners = element[5].qNum;
           countryAndNumCommitments.set(countryCode, numCommitments);
+          countryAndParners.set(countryCode, numPartners);
         }
       });
       var countryScoreMapNormal = new Map();
@@ -906,6 +913,7 @@ function main() {
       }
       console.log(JSON.stringify([...countryScoreMapNormal]));
       console.log(JSON.stringify([...countryAndNumCommitments]));
+      console.log(JSON.stringify([...countryAndParners]));
     });
   });
 }
