@@ -24,23 +24,23 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Main-subtitle">
-          <h2>
+          {/* <h2>
             Fact: We could see <br />
             fishless oceans <br /> by 2048
-          </h2>
-          <h3> Source: National Geographic</h3>
+          </h2> */}
+          {/* <h3> Source: National Geographic</h3> */}
         </div>
 
         <header className="App-header">
-          <img
+          {/* <img
             src={require("./images/Icon.png")}
             width="250px"
             height="200px"
             style={{ transform: "translateY(0px)" }}
             //  transform="translateY(200px)"
             alt="icon"
-          />
-          <h1 className="Main-Title"> Saving Nemo</h1>
+          /> */}
+          <h1 className="Main-Title">Saving Nemo 🌊</h1>
         </header>
 
         <section className="container world-map">

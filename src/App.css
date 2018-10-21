@@ -9,11 +9,11 @@
   height: 40vmin;
 }
 .Main-Title {
-  font-family: "Righteous", cursive;
+  font-family: "Roboto", sans-serif;
   font-size: 40px;
 }
 .App-header {
-  background-image: url("../src/images/background.png");
+  background-image: url("../src/images/nemo.jpg");
   /* background-color: #233160;  */
   background-size: cover;
   min-height: 100vh;
