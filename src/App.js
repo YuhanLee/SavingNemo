@@ -48,10 +48,10 @@ class App extends Component {
           </div>
         </section>
 
-					<section className="container doughnut-chart">
+					{/* <section className="container doughnut-chart">
 						<div className="container">
-							</div>
-					</section>
+						</div>
+					</section> */}
       </div>
     );
   }
