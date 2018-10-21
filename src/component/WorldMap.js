@@ -14,7 +14,19 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
-import {numberToColorRgb, arrayCountries} from '../helpers';
+import {
+    numberToColorRgb,
+    arrayCountries,
+    Global,
+    SouthAtlantic,
+    SouthPacific,
+    NorthAtlantic,
+    NorthPacific,
+    ArcticOcean,
+    IndianOcean,
+    randomNumber,
+    SouthernOcean
+} from '../helpers';
 var countries = require('country-list')();
 
 const styles = {
@@ -44,13 +56,22 @@ class WorldMapWrap extends Component {
         this.state = {
             targetSVG: "M-50,0a50,50 0 1,0 100,0a50,50 0 1,0 -100,0",
             areas: countries,
-            selectedCountry: ''
+            selectedCountry: '',
+            open: false,
         }
     }
 
-    state = {
-        open: false,
-    };
+    transformToPartners(array){
+        var partners = array.map((item)=>{
+            return {
+                id: item[0],
+                commitment: item[1]
+            }
+        })
+
+        console.log(partners)
+        return partners
+    }
 
     handleClickOpen = (id) => {
         var transform = countries.getName(id)
@@ -109,25 +130,18 @@ class WorldMapWrap extends Component {
                     {
                         "latitude": -28.7676591056912,
                         "longitude": -14.94140625,
-                        "label": "Atlantic North",
+                        "label": "South Atlantic ",
                         // "svgPath": this.state.targetSVG,
-                        accessibleTitle:true,
                         "labelColor":"#e78200",
                         "alpha": 0.5,
                         "scale": 0.1,
                         "selectable": true,
-                        "partners":[{
-                            id: 'US',
-                            commitment: 0
-                        },{
-                            id: 'BR',
-                            commitment: 80
-                        }],
+                        "partners":SouthAtlantic,
 
                     },{
-                        "latitude": [34.6693585452454],
+                        "latitude": 34.6693585452454,
                         "longitude": -40.78125,
-                        "label": "Atlantic North",
+                        "label": "North Atlantic",
                         "labelColor":"#e78200",
                         // "svgPath": this.state.targetSVG,
                         'accessibleTitle':true,
@@ -136,17 +150,109 @@ class WorldMapWrap extends Component {
                         "alpha": 0.5,
                         "scale": 0.1,
                         "selectable": true,
-                        "partners":[{
-                            id: 'CA',
-                            commitment: 100
-                        }],
+                        "partners":NorthAtlantic,
 
-                    }]
+                    },
+                    {
+                        "latitude": 84.006852447084,
+                        "longitude": -134.560546875,
+                        "label": "Arctic Ocean",
+                        "labelColor":"#e78200",
+                        // "svgPath": this.state.targetSVG,
+                        'accessibleTitle':true,
+                        'fontSize':38,
+                        "color":"#fff",
+                        "alpha": 0.5,
+                        "scale": 0.1,
+                        "selectable": true,
+                        "partners":ArcticOcean,
+
+                    },                    {
+                        "latitude": 40.6972990086367,
+                        "longitude": -73.98193359375,
+                        "label": "Global",
+                        "labelColor":"#e78200",
+                        // "svgPath": this.state.targetSVG,
+                        'accessibleTitle':true,
+                        'fontSize':38,
+                        "color":"#fff",
+                        "alpha": 0.5,
+                        "scale": 0.1,
+                        "selectable": true,
+                        "partners":Global,
+
+                    },                    {
+                        "latitude": -21.9430455334381,
+                        "longitude": 79.98046875,
+                        "label": "Indian Ocean",
+                        "labelColor":"#e78200",
+                        // "svgPath": this.state.targetSVG,
+                        'accessibleTitle':true,
+                        'fontSize':38,
+                        "color":"#fff",
+                        "alpha": 0.5,
+                        "scale": 0.1,
+                        "selectable": true,
+                        "partners":IndianOcean,
+
+                    },                    {
+                        "latitude": 30.4486736792875,
+                        "longitude": -171.38671875,
+                        "label": "North Pacific",
+                        "labelColor":"#e78200",
+                        // "svgPath": this.state.targetSVG,
+                        'accessibleTitle':true,
+                        'fontSize':38,
+                        "color":"#fff",
+                        "alpha": 0.5,
+                        "scale": 0.1,
+                        "selectable": true,
+                        "partners":NorthPacific,
+
+                    },                    {
+                        "latitude": -29.5352295629484,
+                        "longitude": -137.197265625,
+                        "label": "South Pacific",
+                        "labelColor":"#e78200",
+                        // "svgPath": this.state.targetSVG,
+                        'accessibleTitle':true,
+                        'fontSize':38,
+                        "color":"#fff",
+                        "alpha": 0.5,
+                        "scale": 0.1,
+                        "selectable": true,
+                        "partners":SouthPacific,
+
+                    },                    {
+                        "latitude": -68.3991800434418,
+                        "longitude": -163.4765625,
+                        "label": "Southern Ocean",
+                        "labelColor":"#e78200",
+                        // "svgPath": this.state.targetSVG,
+                        'accessibleTitle':true,
+                        'fontSize':38,
+                        "color":"#fff",
+                        "alpha": 0.5,
+                        "scale": 0.1,
+                        "selectable": true,
+                        "partners":SouthernOcean
+
+                    }
+                ]
             },
             "areasSettings": {
                 "autoZoom": false,
-                "selectedColor": "#8bebcc"
+                "balloonText": "",
+                "outlineThickness": 1,
+                "selectable": true,
+                "rollOverColor": null
             },
+            // "areasSettings": {
+            //     "autoZoom": false,
+            //     "selectedColor": "#8bebcc",
+            //     "rollOverColor": null
+            //
+            // },
             "listeners": [
                 {
                     "event": "clickMapObject",
