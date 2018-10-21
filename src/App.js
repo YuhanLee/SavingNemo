@@ -48,11 +48,10 @@ class App extends Component {
           </div>
         </section>
 
-        {/* <section className="container doughnut-chart">
-          <div className="container">
-							<PartnersByOceanBasin> </PartnersByOceanBasin>
-						</div>
-        </section> */}
+					<section className="container doughnut-chart">
+						<div className="container">
+							</div>
+					</section>
       </div>
     );
   }

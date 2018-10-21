@@ -10,12 +10,10 @@ class PartnersByOceanBasin extends Component {
 
 
 	componentDidMount() {
-		//hardcoding it before the data can be properly be passed from App.js through dataMap
 		var dataX= ["South Pacific", "North Pacific", "North Atlantic", "Arctic Ocean", 
 		"Southern Ocean", "South Atlantic", "Indian Ocean", "Global"]; 
 		var dataY = ["1204", "904", "1302", "175", "283", "547", "876", "1942"]; 
 
-		//TODO: possibly display more information on the target info: https://sustainabledevelopment.un.org/sdg14
     var ctx = document.getElementById("partnersByOceanBasins");
     var partnersByOceanBasins = new Chart(ctx, {
         type: 'doughnut',

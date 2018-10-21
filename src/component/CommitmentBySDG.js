@@ -63,9 +63,9 @@ class CommitmentBySDG extends Component {
 	
   render() {
     return (
-      <div className="chart-container" >
+      <div className="chart-container">
 				<h1>Commitment by SDG Target</h1>
-        <canvas id="myChart" className="canvas" width="600" height="400" ></canvas>
+        <canvas id="myChart" className="canvas" width="600" height="400"></canvas>
       </div>
     );
 	}	
