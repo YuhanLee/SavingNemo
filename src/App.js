@@ -2,60 +2,61 @@ import React, { Component } from "react";
 import "./App.css";
 import WorldMap from "./component/WorldMap";
 import CommitmentBySDG from "./component/CommitmentBySDG";
-import PartnersByOceanBasin from './component/PartnersByOceanBasin'
+import PartnersByOceanBasin from "./component/PartnersByOceanBasin";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-			dataMap: {}
-		};
+      dataMap: {}
+    };
   }
 
   componentWillMount() {
-			this.setState({ dataMap: window.mainMap, map2: window.otherMap, loaded: true });
-			this.sleep(1000).then(() => {		});
-	}
+    this.setState({
+      dataMap: window.mainMap,
+      map2: window.otherMap,
+      loaded: true
+    });
+  }
 
-	 sleep (time) {
-		return new Promise((resolve) => setTimeout(resolve, time));
-	}
-<<<<<<< HEAD
-
-
-
-=======
-	
->>>>>>> 6dfe8a400fa6516293d607427800ffc4042dd09c
   render() {
-
     return (
       <div className="App">
         <header className="App-header">
-					{/* <h1>Saving Nemo</h1> */}
-					<img src="./images/Icon.png" width="100px" height="80px"></img>
+          <img
+            src={require("./images/Icon.png")}
+            width="250px"
+            height="200px"
+            style={{ transform: "translateY(0px)" }}
+            //  transform="translateY(200px)"
+            alt="icon"
+          />
+          <h1 className="Main-Title"> Saving Nemo</h1>
+          <h2>Fact: We could see <br/>fishless oceans <br/> by 2048</h2>
+          <h3> Source: National Geo</h3>
         </header>
 
         <section className="container world-map">
           <h1>World Map</h1>
           <div className="container">
-						<WorldMap />
+            <WorldMap />
           </div>
         </section>
 
         <section className="container bar-chart">
           <div className="container grid-container">
-						<div className="grid-item">
-							<CommitmentBySDG dataMap={this.state.dataMap}  />
-						</div>
+            <div className="grid-item">
+              <CommitmentBySDG dataMap={this.state.dataMap} />
+            </div>
 
-						<div className="grid-item">
-								<PartnersByOceanBasin></PartnersByOceanBasin>
-						</div>
+            <div className="grid-item">
+              <PartnersByOceanBasin />
+            </div>
           </div>
         </section>
 
-					{/* <section className="container doughnut-chart">
+        {/* <section className="container doughnut-chart">
 						<div className="container">
 						</div>
 					</section> */}
