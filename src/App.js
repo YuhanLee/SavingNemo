@@ -30,7 +30,7 @@ class App extends Component {
           </h2>
           <h3> Source: National Geographic</h3>
         </div>
-        
+
         <header className="App-header">
           <img
             src={require("./images/Icon.png")}
