@@ -13,7 +13,6 @@ class CommitmentBySDG extends Component {
 		var dataX= ["14.1", "14.2", "14.3", "14.4", "14.5", "14.6", "14.7", "14.a", "14.b", "14.c"];
 		var dataY = ["547", "705", "232", "413", "385", "91", "326", "530", "228", "271"];
 
-		//TODO: possibly display more information on the target info: https://sustainabledevelopment.un.org/sdg14
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -63,9 +62,9 @@ class CommitmentBySDG extends Component {
 
   render() {
     return (
-      <div className="chart-container" >
+      <div className="chart-container">
 				<h1>Commitment by SDG Target</h1>
-        <canvas id="myChart" className="canvas" width="600" height="400" ></canvas>
+        <canvas id="myChart" className="canvas" width="600" height="400"></canvas>
       </div>
     );
 	}
