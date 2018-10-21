@@ -8,7 +8,8 @@
 }
 
 .App-header {
-	background-image: url('../src/images/background.jpg');	
+	background-image: url('../src/images/nemo.jpg');	
+	/* background-color: #233160;  */
 	background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -16,30 +17,29 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+	color: white;
+	font-family: 'Roboto', sans-serif;
 }
 
 .App-link {
   color: #61dafb;
 }
 
- .world-map{
+ .world-map {
+	 padding: 30px; 
 	 padding-top: 50px; 
-	 padding-left: 20px; 
-	 padding-right: 20px; 
 	 min-height: 600px; 
-	 background-color: #d7def2; 
+	 background-color: #f2f5fa;
  }
 
  .bar-chart {
 	align-content: center; 
-	padding-top: 50px; 
-	padding-left: 20px; 
-	padding-right: 20px; 
+	padding: 30px; 
+	padding-top: 50px;
 	min-height: 600px; 
 	background-color: white; 
 }
  .section3{
 	min-height: 600px; 
-	background-color: #02144c; 
+	background-color: #233160; 
  }

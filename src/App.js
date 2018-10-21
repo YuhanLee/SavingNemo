@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <ul id="countries" />
+          <h1>Saving Nemo 🌊</h1>
         </header>
 
         <section className="container world-map">

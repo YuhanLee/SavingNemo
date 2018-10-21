@@ -57,8 +57,8 @@ class CommitmentBySDG extends Component {
                         beginAtZero:true
                     }
                 }]
-            }
-        }
+						}
+				}
     });
 	}
 	
