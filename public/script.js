@@ -144,10 +144,12 @@ function main() {
 
       matrix.forEach((row, index) => {
         if (row[0].qText.startsWith("14")) {
-          mainMap.commitmentBySDG[row[0].qText] = { count: row[1].qText };
+					mainMap.commitmentBySDG.push({x:row[0].qText, y:row[1].qText});
+
+					// [row[0].qText] = { count: row[1].qText };
         }
       });
-      console.log("mainMap in",mainMap);
+			console.log("mainMap in", mainMap);
     });
   });
 }

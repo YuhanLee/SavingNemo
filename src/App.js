@@ -15,19 +15,19 @@ class App extends Component {
 			this.setState({ dataMap: window.mainMap, map2: window.otherMap, loaded: true });
 			this.sleep(1000).then(() => {		});
 	}
-	
+
 	 sleep (time) {
 		return new Promise((resolve) => setTimeout(resolve, time));
 	}
-	
+
 
 
   render() {
-	  
+
     return (
       <div className="App">
         <header className="App-header">
-          <ul id="countries" />
+          <h1>Saving Nemo 🌊</h1>
         </header>
 
         <section className="container world-map">
@@ -38,12 +38,11 @@ class App extends Component {
         </section>
 
         <section className="container bar-chart">
-          <h1>Bar Chart</h1>
           <div>
-						{
+						{/* {
 							console.log("At AppJS = ", this.state.dataMap)
-						}
-						<CommitmentBySDG dataMap={this.state.dataMap} />
+						} */}
+						<CommitmentBySDG dataMap={this.state.dataMap}  />
           </div>
         </section>
 
