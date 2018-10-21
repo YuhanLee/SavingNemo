@@ -147,7 +147,7 @@ function main() {
           mainMap.commitmentBySDG[row[0].qText] = { count: row[1].qText };
         }
       });
-      // console.log("mainMap",mainMap);
+      console.log("mainMap in",mainMap);
     });
   });
 }
