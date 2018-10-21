@@ -26,7 +26,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Saving Nemo 🌊</h1>
+					{/* <h1>Saving Nemo</h1> */}
+					<img src="./images/Icon.png" width="100px" height="80px"></img>
         </header>
 
         <section className="container world-map">

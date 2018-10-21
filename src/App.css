@@ -8,7 +8,7 @@
 }
 
 .App-header {
-	background-image: url('../src/images/nemo.jpg');	
+	background-image: url('../src/images/background.png');	
 	/* background-color: #233160;  */
 	background-size: cover;
   min-height: 100vh;
