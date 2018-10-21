@@ -38,12 +38,11 @@ class App extends Component {
         </section>
 
         <section className="container bar-chart">
-          <h1>Bar Chart</h1>
           <div>
-						{
+						{/* {
 							console.log("At AppJS = ", this.state.dataMap)
-						}
-						<CommitmentBySDG dataMap={this.state.dataMap} />
+						} */}
+						<CommitmentBySDG dataMap={this.state.dataMap}  />
           </div>
         </section>
 
